@@ -1,3 +1,5 @@
+const themeConfig = require('../../config/index');
+console.log('themeConfig', themeConfig)
 // .vuepress/config.js
 module.exports = {
   lang: 'zh-CN',
@@ -20,10 +22,27 @@ module.exports = {
     }
   },
   themeConfig: {
-    repo: 'myblog',
+    displayAllHeaders: true,
+    repo: 'Kangchuijing',
     noFoundPageByTencent: false,
     author: 'blues kang',
     logo: '/images/logo.png',
+    search: true,
+    searchMaxSuggestions: 10,
+    ...themeConfig,
+    sidebar: {
+        '/zh/CICD': {
+          title: '自动构建持续集成',
+          collapsable: false,
+          children: [
+            '',
+            'gitlab安装及配置',
+            'git安装',
+            '安装docker',
+            'gitlab-runner',
+          ]
+        },
+    },
     locales: {
       '/': {
         selectText: 'Languages',
@@ -35,6 +54,7 @@ module.exports = {
             buttonText: "Refresh"
           }
         },
+        sidebar: 'auto',
         category: {
           location: 2,     // 在导航栏菜单中所占的位置，默认2
           text: 'Category' // 默认文案 “分类”
@@ -45,10 +65,20 @@ module.exports = {
         },
         // 当前 locale 的 algolia studyearch 选项
         algolia: {},
+        // sidebar: {
+        //   '/gitlab/': [
+        //     {
+        //       title: '基础gitlab安装及配置',
+        //       path: '/guide/'
+        //     },
+        //     {
+
+        //     }
+        //   ]
+        // },
         nav: [
           { text: 'Home', link: '/' },                      // 根路径
           { text: 'Guide', link: '/guide/' },
-          { text: 'github', link: 'https://github.com/Kangchuijing' }, // 外部链接
           // 显示下拉列表
           // {
           //   text: 'Languages',
@@ -61,6 +91,10 @@ module.exports = {
           {
             text: '高级',
             items: [
+              {
+                text: 'CICD',
+                link: '/CICD/'
+              },
               { 
                 text: '算法', 
                 items: [
@@ -93,6 +127,7 @@ module.exports = {
             buttonText: "刷新"
           }
         },
+        sidebar: 'auto',
         // 当前 locale 的 algolia studyearch 选项
         algolia: {},
         category: {
@@ -106,7 +141,6 @@ module.exports = {
         nav: [
           { text: '首页', link: '/' },                      // 根路径
           { text: '指南', link: '/guide/' },
-          { text: 'github', link: 'https://github.com/Kangchuijing' }, // 外部链接
           // 显示下拉列表
           // {
           //   text: 'Languages',
@@ -119,6 +153,10 @@ module.exports = {
           {
             text: '高级',
             items: [
+              {
+                text: 'CICD',
+                link: '/zh/CICD/'
+              },
               { 
                 text: '算法', 
                 items: [
