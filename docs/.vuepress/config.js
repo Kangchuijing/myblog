@@ -2,7 +2,6 @@ const themeConfig = require('../../config/index');
 console.log('themeConfig', themeConfig)
 // .vuepress/config.js
 module.exports = {
-  base: '/blog',
   lang: 'zh-CN',
   title: 'blueskang blog',
   description: 'record my daily code',
